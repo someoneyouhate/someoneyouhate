@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Corporate </title>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgba(0, 89, 255,1);
+    }
+
+    h1 {
+      text-align: center;
+      margin: 20px;
+    }
+
+    #photography-grid {
+      display: grid;
+      grid-template-columns: 30% 30% 30%;
+      grid-template-rows: 40vh 40vh 40vh 40vh;
+      gap: 2px; /* Adjust the gap between grid items */
+      padding: 5px; /* Adjust the padding around the grid */
+      margin-left:9%;
+      margin-top: 3%;
+      position: absolute;
+    }
+
+    #photography-grid .grid-item:hover {
+      mix-blend-mode: hue;
+    }
+
+    .grid-item {
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5em;
+      height: 100%; /* Adjust the height of each grid item to fill the grid cell */
+      color: white; /* Text color */
+      overflow: hidden; /* Hide overflow content */
+      padding-bottom: 25px;
+      opacity:50%;
+    }
+
+    .grid-text {
+      box-sizing: border-box;
+      display: flex;
+      font-size: 1.5em;
+      color: white; /* Text color */
+      overflow: hidden; /* Hide overflow content */
+      padding-top: 30px;
+      padding-left: 30px;
+      opacity: 100;
+      font-family: 'Rubik';
+    }
+
+    .grid-text p {
+      width: 100vh;
+      height: 100%;
+    }
+
+    .grid-item img {
+      object-fit: cover; /* Maintain aspect ratio while covering the content box */
+      width: 100%;
+      height: 100%;
+    }
+
+    .title {
+      margin-top : 0%;
+      font-size: 3.5em;
+      margin-bottom: 0.5em;
+      word-spacing: 200px;
+      font-stretch: extra-expanded;
+      font-family: 'Barlow';
+      z-index: 1;
+      color:white;
+    }
+
+    a {
+      text-decoration: none;
+      color:white;
+    }
+
+  </style>
+</head>
+<body>
+
+  <section class="title">
+      <h1><a href="index.html">kiss someone you hate</a></h1>
+  </section>
+
+  <div id="photography-grid">
+    <!-- Generating grid items directly in HTML -->
+    <div class='grid-item'><iframe src="https://player.vimeo.com/video/894478736?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1080" height="1920" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Life by Vivara | Lili"></iframe></div>
+    <div class='grid-item'><iframe src="https://player.vimeo.com/video/786872254?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1080" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="ADLC | Réaliser son bilan carbone"></iframe></div>
+    <div class='grid-item'><iframe src="https://player.vimeo.com/video/754903538?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="L'Oreal | Beauty around the world teaser"></iframe></div>
+      <div class='grid-item'><iframe src="https://player.vimeo.com/video/726540191?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" width="1920" height="1080" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Pôle des relations extérieures | EDS"></iframe> </div>
+  </div>
+
+  <div id="photography-grid">
+  <div class='grid-text'><p><b>Life by Vivara - Lili </b><br/> <br/> Colour grading, ACES pipeline </div>
+  <div class='grid-text'><p><b>Acteurs de la compétence | Réaliser son bilan carbone </b><br/> <br/> Cadrage, montage, motion design</div>
+  <div class='grid-text'><p><b>L'Oreal - Beauty around the world teaser </b><br/> <br/> Montage</div>
+  <div class='grid-text'><p><b>Ecole de Droit de la Sorbonne </b><br/> <br/> Cadrage, montage</div>
+  <div class='grid-text'><p><b>L'Oreal - Beauty around the world teaser </b><br/> <br/> Montage</div>
+  </div>
+</body>
+</html>
