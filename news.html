@@ -8,6 +8,9 @@
     body {
       margin: 20px;
       background-color: rgba(0, 89, 255,1);
+      text-align: center;
+      background-image: url("Img/P1166778.jpg");
+      background-position: 25% 50%;
     }
 
     h1 {
@@ -40,14 +43,171 @@
       color:white;
     }
 
+
+        #noteContainer {
+            margin-top: 15%;
+            font-family: 'Rubik';
+            font-size: 30px;
+            color:white;
+            margin-top: 7%
+        }
+
+        #publishedNotes {
+              font-family: 'Rubik', sans-serif;
+              font-size: 16px;
+              color:white;
+              font-weight: normal;
+        }
+
+        input {
+          text-decoration: none;
+          color:white;
+          border:none;
+          background-color: black;
+          font-family: 'Rubik';
+          font-size: 30px;
+        }
+
+        p {
+          color:white;
+          margin-bottom: 5px;
+          font-family: 'Rubik';
+          font-size: 30px;
+          line-height: AUTO;
+          margin-top: 2vh;
+        }
+
+        #photography-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(1, 1fr);
+          gap: 10px; /* Adjust the gap between grid items */
+          padding: 5px; /* Adjust the padding around the grid */
+          height: 50vh; /* Set height to fill the entire viewport */
+          margin-top: 5%;
+        }
+
+
+        .grid-item {
+          box-sizing: border-box;
+          display: flex;
+          font-size: 1.5em;
+          height: 100%; /* Adjust the height of each grid item to fill the grid cell */
+          color: white; /* Text color */
+          padding: 25px;
+          display: flex;
+          text-align: justify;
+            }
+
+            #circle{
+              padding: 2em;
+              position: fixed;
+              top: 0;
+              left: 0;
+              margin-top:-225vh;
+              margin-left: -225vh;
+              background-color: transparent;
+              border-radius: 50%;
+              border: 200vh solid rgba(0, 89, 255,1); /* Make a huge border to hide the rest */
+              height: 400px;
+              width: 400px;
+              opacity:1;
+              z-index: -1;
+            }
+
   </style>
 </head>
 <body>
 
-  <section class="title">
-      <h1><a href="index.html">kiss someone you hate</a></h1>
-  </section>
+    <section class="title">
+        <h1><a href="index.html">kiss someone you hate</a></h1>
+    </section>
 
-<p> 23/02/2024 <br>New website.</p>
+    <div id="noteContainer">
+        <form id="noteForm">
+            <label for="nameInput">My name is</label>
+            <input type="text" id="nameInput" required>
+
+            <label for="thoughtsInput">and I think</label>
+            <input type="text" id="thoughtsInput" required>
+
+            <input type="submit" onclick="addNote()" hidden />
+        </form>
+    </div>
+
+    <div id="photography-grid">
+        <!-- Generating grid items directly in HTML -->
+        <div class='grid-item'>
+            <p><b>25 Feb 2024</b> <br>Welcome to my new website and its new news page. It's up to you now to generate
+                some new news. Write something above, and it will stick to the right for all to see. Don't be shy. Don't be weird.<br>
+                <br>In old news, today marks one year since the shoot for Smell the paint. Will postproduction finish
+                soon? I hope so. If you're a member of the crew, don't worry, you will be kept informed =)</p>
+        </div>
+        <div class='grid-item'>
+            <div id="publishedNotes">
+                <ul id="noteList"></ul>
+            </div>
+        </div>
+    </div>
+
+      <div id="circle">
+        </div>
+
+    <script>
+      // Function to add a note
+      function addNote() {
+          // Get values from input fields
+          var name = document.getElementById('nameInput').value;
+          var thoughts = document.getElementById('thoughtsInput').value;
+
+          // Create a new list item with the submitted note and timestamp
+          var timestamp = new Date().toLocaleString();
+          var newNote = document.createElement('p');
+          newNote.textContent = '[' + timestamp + '] My name is ' + name + ' and I think ' + thoughts;
+
+          // Append the new note to the list
+          document.getElementById('noteList').appendChild(newNote);
+
+          // Save input data and timestamp to local storage
+          localStorage.setItem('name', name);
+          localStorage.setItem('thoughts', thoughts);
+          localStorage.setItem('timestamp', timestamp);
+
+          // Clear the input fields
+          document.getElementById('nameInput').value = '';
+          document.getElementById('thoughtsInput').value = '';
+      }
+
+      // Function to load input data from local storage
+      function loadInputData() {
+          var name = localStorage.getItem('name');
+          var thoughts = localStorage.getItem('thoughts');
+          var timestamp = localStorage.getItem('timestamp');
+
+          if (name && thoughts && timestamp) {
+              // Create a new list item with the stored input data and timestamp
+              var newNote = document.createElement('p');
+              newNote.textContent = '[' + timestamp + '] My name is ' + name + ' and I think ' + thoughts;
+
+              // Append the stored note to the list
+              document.getElementById('noteList').appendChild(newNote);
+          }
+      }
+
+      var circle = document.getElementById('circle');
+
+    document.addEventListener('mousemove', positionCircle);
+
+    function positionCircle(e){
+      circle.style.left = e.clientX + 'px';
+      circle.style.top = e.clientY + 'px';
+    }
+
+      // Load input data on page load
+      window.onload = loadInputData;
+  </script>
+
+
 </body>
+
 </html>
